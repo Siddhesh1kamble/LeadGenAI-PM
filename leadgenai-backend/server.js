@@ -21,9 +21,8 @@ const openai = new OpenAI({
 // Multer setup (for file uploads)
 const upload = multer({ storage: multer.memoryStorage() });
 
-// In-memory store for uploaded data & chat history (you can later use DB)
-const dataStore = {}; // key: fileId, value: { rawData, summary, chatHistory }
-
+// In-memory store for uploaded data & chat history 
+const dataStore = {}; 
 async function parseFile(file) {
   const ext = path.extname(file.originalname).toLowerCase();
 
