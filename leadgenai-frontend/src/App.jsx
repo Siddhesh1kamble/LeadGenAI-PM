@@ -4,7 +4,7 @@ import axios from "axios";
 export default function App() {
   const [file, setFile] = useState(null);
   const [fileId, setFileId] = useState(null);
-  const [rawPreviewText, setRawPreviewText] = useState(""); // raw file content preview (not summary)
+  const [rawPreviewText, setRawPreviewText] = useState(""); // raw file content preview 
   const [summary, setSummary] = useState("");
   const [query, setQuery] = useState("");
   const [chat, setChat] = useState([
