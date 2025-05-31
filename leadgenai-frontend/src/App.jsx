@@ -18,7 +18,7 @@ export default function App() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
-  // On file select, generate preview content (CSV/TXT raw text or XLSX sheet JSON string)
+  // On file select, generate preview content 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
@@ -36,7 +36,7 @@ export default function App() {
     setPreviewUrl(URL.createObjectURL(selectedFile));
 
     if (ext === "pdf") {
-      // No need to read file text for PDF preview, iframe uses previewUrl
+     
       setRawPreviewText(""); 
     } else if (ext === "csv" || ext === "txt") {
       // Read file as text for preview
@@ -55,7 +55,7 @@ export default function App() {
     }
   };
 
-  // Helper to read Excel file as JSON on client (using XLSX lib dynamically)
+  // Helper to read Excel file as JSON on client 
   async function readExcelFileAsJson(file) {
     const XLSX = await import("xlsx");
     const arrayBuffer = await file.arrayBuffer();
@@ -75,7 +75,7 @@ export default function App() {
       setFileId(res.data.fileId);
       setSummary(res.data.summary);
 
-      // Show summary only in chatbot, NOT in preview
+      // Show summary 
       setChat((prev) => [
         ...prev,
         { sender: "bot", text: "File uploaded and summarized! Here's the summary:" },
